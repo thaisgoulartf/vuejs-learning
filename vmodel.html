@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, Vue</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>Type your name:</p>
+    <input type="text" v-model="content" placeholder="Type your name">
+    <p v-if="content == 'Thais'">{{ content }} Goulart</p>
+    <p v-else>{{ content }}</p>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, Vue.js!',
+        verify: true,
+        number: 10,
+        content: ""
+      },
+    });
+  </script>
+</body>
+</html>

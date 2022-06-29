@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, Vue</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header-component></header-component>
+    <artigo-component></artigo-component>
+    <todo-component v-for="todo in todos" v-bind:todo="todo" v-bind:key="todo.id" />
+  </div>
+  <script>
+
+    Vue.component( 'header-component', { template: '<h1>My header</h1>' });
+    Vue.component( 'artigo-component', { template: '<p>How are you?</p>' });
+    Vue.component( 'todo-component', {
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    });
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'This is my message!',
+        todos: [
+          { id: 1, text: 'Clean the bedroom'},
+          { id: 2, text: 'Wash the dishes'},
+          { id: 3, text: 'Do physical activity'}
+        ]
+      },
+
+      methods: {
+        onLoadPage: function() {
+          alert( this.message );
+        }
+      },
+    });
+  </script>
+</body>
+</html>

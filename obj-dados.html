@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, Vue</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ lists[1].language }}</h1>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, Vue.js!',
+        lists: [
+          {
+            id: 1,
+            name: 'Thais Goulart',
+            language: "Portuguese"
+          },
+          {
+            id: 2,
+            name: 'Jacira Goulart',
+            language: "English"
+          },
+          {
+            id: 2,
+            name: 'Edson Goulart',
+            language: "Spanish"
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

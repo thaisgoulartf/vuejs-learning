@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, Vue</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul v-if="verify" v-for="list in lists">
+      <li>ID:<b>{{ list.id }}</b></li>
+      <li>NAME:<b>{{ list.name }}</b></li>
+      <li>LANGUAGE:<b>{{ list.language }}</b></li>
+    </ul>
+    <p v-else>There is no data to display</p>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, Vue.js!',
+        lists: [
+          {
+            id: 1,
+            name: 'Thais Goulart',
+            language: "Português"
+          },
+          {
+            id: 2,
+            name: 'Jacira Goulart',
+            language: "Inglês"
+          },
+          {
+            id: 2,
+            name: 'Edson Goulart',
+            language: "Espanhol"
+          }
+        ],
+        verify: true
+      },
+    });
+  </script>
+</body>
+</html>

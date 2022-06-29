@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bitcoin Prices</title>
+  <script src="./assets/js/axios.js"></script>
+  <script src="./assets/js/vue.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div id="app" class="ui container">
+    <h1>{{ title }}</h1>
+    <ul v-for="info in infos">
+      <li>
+        <h3><strong v-html="info.symbol"></strong> {{ info.code }} </h3>
+        <ul>
+          <li>Description: <strong>{{ info.description }}</strong></li>
+          <li>Value: <strong>{{ info.rate }}</strong></li>
+          <li>Floating: <strong>{{ info.rate_float }}</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <script>
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        title: 'Preços do Bitcoin',
+        infos: []
+      },
+
+      mounted() {
+        axios
+        .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+        .then( response => (this.infos = response.data.bpi ))
+      }
+
+    });
+  </script>
+</body>
+</html>

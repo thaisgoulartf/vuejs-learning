@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello, Vue</title>
+  <script src="./assets/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 v-if="number > 4">It is greater than 4 because it is the number {{ number }}</h1>
+    <h1 v-else-if="number === 4">The number is equal to 4, confirming {{ number }}</h1>
+    <h1 v-else>Another number that is less than 4, the number being {{ number }}</h1>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, Vue.js!',
+        verify: true,
+        number: 10
+      },
+    });
+  </script>
+</body>
+</html>
